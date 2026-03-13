@@ -1,4 +1,7 @@
-def mission_snapshot(items: list[object]) -> tuple[object | None, object | None]:
+from typing import List, Optional, Tuple
+
+
+def mission_snapshot(items: List[object]) -> Tuple[Optional[object], Optional[object]]:
     """
     Return the first and last item in the list.
     If the list is empty return (None, None).
@@ -9,7 +12,7 @@ def mission_snapshot(items: list[object]) -> tuple[object | None, object | None]
     return (items[0], items[-1])
 
 
-def cargo_window(items: list[object], start: int, size: int) -> list[object]:
+def cargo_window(items: List[object], start: int, size: int) -> List[object]:
     """
     Return up to size items starting from index start.
     """
@@ -22,7 +25,7 @@ def cargo_window(items: list[object], start: int, size: int) -> list[object]:
     return items[start:start + size]
 
 
-def first_supply_index(items: list[object], target: object) -> int:
+def first_supply_index(items: List[object], target: object) -> int:
     """
     Return the first index of target or -1 if not found.
     """
@@ -33,7 +36,7 @@ def first_supply_index(items: list[object], target: object) -> int:
     return -1
 
 
-def supply_report(items: list[object], target: object) -> tuple[int, int]:
+def supply_report(items: List[object], target: object) -> Tuple[int, int]:
     """
     Return (count, first_index) of target.
     """
@@ -52,7 +55,7 @@ def supply_report(items: list[object], target: object) -> tuple[int, int]:
     return (count, first_index)
 
 
-def priority_load(items: list[object], urgent_item: object) -> list[object]:
+def priority_load(items: List[object], urgent_item: object) -> List[object]:
     """
     Return a new list with urgent_item added to the front.
     """

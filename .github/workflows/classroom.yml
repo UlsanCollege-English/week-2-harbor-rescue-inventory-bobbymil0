@@ -24,7 +24,7 @@ jobs:
         test-name: tests
         timeout: 10
         setup-command: python -m pip install -U pip pytest
-        command: pytest -q
+        command: PYTHONPATH=. python -m pytest -q
         max-score: 1
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
