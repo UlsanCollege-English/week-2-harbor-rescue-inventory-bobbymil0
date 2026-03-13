@@ -13,12 +13,19 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
     - name: tests
       id: tests
-      uses: classroom-resources/autograding-python-grader@v1
+      uses: classroom-resources/autograding-command-grader@v1
       with:
+        test-name: tests
         timeout: 10
-        setup-command: ''
+        setup-command: python -m pip install -U pip pytest
+        command: pytest -q
+        max-score: 1
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
